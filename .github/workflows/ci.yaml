@@ -109,7 +109,7 @@ jobs:
           python -m pip install --upgrade pip wheel
           pip install -e ".[export]" "coverage[toml]" --extra-index-url https://download.pytorch.org/whl/cpu
           brew install libomp llvm
-          pip install https://github.com/allnes/openvino/raw/refs/heads/an/test_wheel/wheels/openvino-2025.0.0-17437-cp311-cp311-macosx_14_0_arm64.whl
+          pip install https://github.com/allnes/openvino/raw/refs/heads/an/test_wheel/wheels/openvino-2025.0.0-17437-cp311-cp311-macosx_14_0_arm64.whl https://github.com/allnes/openvino/raw/refs/heads/an/test_wheel/wheels/openvino_dev-2025.0.0-17437-py3-none-any.whl
       - name: Check environment
         run: |
           yolo checks
