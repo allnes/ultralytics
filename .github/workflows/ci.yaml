@@ -4,12 +4,7 @@
 name: Ultralytics CI
 
 on:
-  push:
-    branches: [main]
   pull_request:
-    branches: [main]
-  schedule:
-    - cron: "0 8 * * *" # runs at 08:00 UTC every day
   workflow_dispatch:
     inputs:
       hub:
@@ -113,6 +108,7 @@ jobs:
           # Warnings: uv causes numpy errors during benchmarking
           python -m pip install --upgrade pip wheel
           pip install -e ".[export]" "coverage[toml]" --extra-index-url https://download.pytorch.org/whl/cpu
+          pip install https://github.com/allnes/openvino/raw/refs/heads/an/test_wheel/wheels/openvino-2025.0.0-17443-cp311-cp311-macosx_11_0_arm64.whl
       - name: Check environment
         run: |
           yolo checks
